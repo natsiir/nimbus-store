@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nimbus Store
 
-## Getting Started
+Nimbus Store adalah platform e-commerce yang dibangun dengan teknologi modern untuk memberikan pengalaman pengguna yang cepat dan responsif. Proyek ini menggunakan Next.js untuk pengembangan aplikasi web, dengan styling menggunakan Tailwind CSS dan ShadCN. API digunakan dengan pendekatan Server-Side Rendering (SSR) dan Client-Side Rendering (CSR). Version control menggunakan Git dengan GitHub serta implementasi Gitflow.
 
-First, run the development server:
+## Teknologi yang Digunakan
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework**: [Next.js] (https://nextjs.org/)
+- **Styling**: [Tailwind CSS] (https://tailwindcss.com/)
+- **Fetching API**: Client-Side Rendering (CSR) (https://fakestoreapi.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Fitur
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- CSR untuk interaksi dinamis pada komponen.
+- Styling responsif menggunakan Tailwind CSS dan ShadCN.
+- Integrasi API untuk pengambilan data produk secara efisien.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalasi
 
-## Learn More
+1. Clone repositori ini:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/username/nimbus-store.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Masuk ke dalam folder proyek:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   cd nimbus-store
+   ```
 
-## Deploy on Vercel
+3. Instal dependensi:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Jalankan aplikasi dalam mode pengembangan:
+
+   ```bash
+   npm run dev
+   ```
+
+   Akses aplikasi di [http://localhost:3000](http://localhost:3000).

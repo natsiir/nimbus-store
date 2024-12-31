@@ -1,18 +1,14 @@
-"use client";
-import { fetchProducts } from "@/lib/utils/fetchProduct";
-import { useEffect, useState } from "react";
-import ContentKatalog from "@/components/ContentKatalog";
-import ResultContent from "@/components/ResultContent";
-import Header from "@/components/Header";
-import Selectfield from "@/components/SelectField";
-import Footer from "@/components/Footer";
-import Tittle from "@/components/Tittle";
-import SideApp from "@/components/SideApp";
-import { fetchCategories } from "@/lib/utils/fetchCategory";
+// components/ClientSide.js (Client Component)
+"use client"; // Pastikan komponen ini hanya dijalankan di klien
 
-const Index = () => {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+import ContentKatalog from "@/components/ContentKatalog";
+import Header from "@/components/Header";
+import ResultContent from "@/components/ResultContent";
+import Selectfield from "@/components/SelectField";
+import SideApp from "@/components/SideApp";
+import { useState } from "react";
+
+const ClientSide = ({ products, categories }) => {
   const [selectedRatings, setSelectedRatings] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,32 +16,6 @@ const Index = () => {
   const [sortOrder, setSortOrder] = useState("");
 
   const productsPerPage = 12;
-
-  // Fetch data
-  useEffect(() => {
-    const loadProducts = async () => {
-      const data = await fetchProducts();
-
-      // diskon untuk setiap produk
-      const productsWithDiscount = data.map((product) => {
-        const discountPercentage = Math.random() * (13 - 5) + 5;
-        return {
-          ...product,
-          discountPercentage: parseFloat(discountPercentage.toFixed(2)),
-        };
-      });
-
-      setProducts(productsWithDiscount);
-    };
-
-    const loadCategories = async () => {
-      const data = await fetchCategories();
-      setCategories(data);
-    };
-
-    loadProducts();
-    loadCategories();
-  }, []);
 
   const handleCategoryChange = (category) => {
     const updatedCategories = selectedCategories.includes(category)
@@ -75,7 +45,6 @@ const Index = () => {
     setCurrentPage(page);
   };
 
-  // kategori, rating, dan pencarian
   const filteredProducts = products.filter((product) => {
     const categoryMatch = selectedCategories.length
       ? selectedCategories.includes(product.category)
@@ -90,7 +59,6 @@ const Index = () => {
     return categoryMatch && ratingMatch && searchMatch;
   });
 
-  // Urutkan
   const sortedProducts = [...filteredProducts];
   if (sortOrder === "lowToHigh") {
     sortedProducts.sort((a, b) => a.price - b.price);
@@ -104,7 +72,6 @@ const Index = () => {
     sortedProducts.sort((a, b) => b.discountPercentage - a.discountPercentage);
   }
 
-  // total page
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
   const currentProducts = sortedProducts.slice(
     (currentPage - 1) * productsPerPage,
@@ -112,12 +79,10 @@ const Index = () => {
   );
 
   return (
-    <>
+    <div className="w-full h-full">
       <Header />
-      <Tittle handleSearchChange={handleSearchChange} searchTerm={searchTerm} />
       <div className="w-full flex lg:flex-col flex-row max-w-[1440px] lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px]">
         <div className="grid lg:flex w-full gap-4">
-          {/* Sidebar */}
           <div className="flex justify-between w-full lg:w-[256px] h-fit lg:h-full ">
             <SideApp
               categories={categories}
@@ -130,7 +95,6 @@ const Index = () => {
               <Selectfield handleSortChange={handleSortChange} />
             </div>
           </div>
-          {/* Main Content */}
           <div className="w-full max-w-[1064px] h-full">
             <div className="flex flex-col w-full gap-6">
               <div className="w-full flex flex-row items-center justify-between">
@@ -153,9 +117,8 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };
 
-export default Index;
+export default ClientSide;
