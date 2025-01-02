@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Tittle from "@/components/Tittle";
 import SideApp from "@/components/SideApp";
 import { fetchCategories } from "@/lib/utils/fetchCategory";
+import PageContent from "@/components/PegeContent";
 
 const Index = () => {
   const [products, setProducts] = useState([]);
@@ -139,10 +140,10 @@ const Index = () => {
     <>
       <Header />
       <Tittle handleSearchChange={handleSearchChange} searchTerm={searchTerm} />
-      <div className="w-full flex lg:flex-col flex-row max-w-[1440px] lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px] mx-auto">
+      <div className="w-full flex lg:flex-col flex-row lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px] mx-auto">
         <div className="grid lg:flex w-full gap-4">
           {/* Sidebar */}
-          <div className="flex justify-between w-full lg:w-[256px] h-fit lg:h-full sticky top-[61px] z-[9] ">
+          <div className="flex justify-between w-full lg:w-[256px] h-fit pt-8 pb-4 md:p-4 sticky top-[61px] z-[9] bg-white bg-opacity-100">
             <SideApp
               categories={categories}
               selectedCategories={selectedCategories}
@@ -155,11 +156,14 @@ const Index = () => {
               handleMaxChange={handleMaxChange}
             />
             <div className="lg:hidden">
-              <Selectfield handleSortChange={handleSortChange} />
+              <Selectfield
+                handleSelection={handleSelection}
+                selectedSort={selectedSort}
+              />
             </div>
           </div>
           {/* Main Content */}
-          <div className="w-full max-w-[1064px] h-full">
+          <div className="w-full h-full">
             <div className="flex flex-col w-full gap-6">
               <div className="w-full flex flex-row items-center justify-between">
                 <ResultContent totalResults={filteredProducts.length} />
@@ -171,7 +175,10 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex flex-col items-center w-full">
-                <div className="grid items-center gap-6 grid-cols-2 h-full min-h-[calc(6*10rem)] sm:grid-cols-3 sm:min-h-[calc(4*10rem)] lg:grid-cols-4 lg:min-h-[calc(3*10rem)] overflow-x-hidden pb-[14px] lg:pb-[40px]">
+                <div
+                  className="w-full grid grid-cols-[repeat(auto-fit,_minmax(248px,_1fr))] items-center gap-6 h-full 
+                overflow-x-hidden pb-[14px] lg:pb-[40px]"
+                >
                   <ContentKatalog
                     products={currentProducts}
                     currentPage={currentPage}
@@ -179,6 +186,11 @@ const Index = () => {
                     handlePageChange={handlePageChange}
                   />
                 </div>
+                <PageContent
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  handlePageChange={handlePageChange}
+                />
               </div>
             </div>
           </div>

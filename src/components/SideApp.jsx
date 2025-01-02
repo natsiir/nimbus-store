@@ -24,7 +24,7 @@ const SideApp = ({
   return (
     <div className="flex">
       {/* Sidebar untuk mode desktop */}
-      <div className="hidden lg:flex flex-col gap-6 p-4 w-full">
+      <div className="hidden lg:flex flex-col gap-6 px-4 w-full">
         {/* Kategori */}
         <div className="flex flex-col gap-4 text-sm">
           <h3 className="font-semibold">Kategori</h3>
