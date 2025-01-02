@@ -19,6 +19,8 @@ const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
   const [selectedSort, setSelectedSort] = useState("Urutkan Berdasarkan");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   const productsPerPage = 12;
 
@@ -81,8 +83,20 @@ const Index = () => {
     handleSortChange(value); // Panggil fungsi handler dengan nilai pilihan
   };
 
+  const handleMinChange = (e) => {
+    const value = e.target.value;
+    setMinPrice(value);
+  };
+
+  const handleMaxChange = (e) => {
+    const value = e.target.value;
+    setMaxPrice(value);
+  };
+
   // kategori, rating, dan pencarian
   const filteredProducts = products.filter((product) => {
+    const hargaProduk = product.price * 15000;
+
     const categoryMatch = selectedCategories.length
       ? selectedCategories.includes(product.category)
       : true;
@@ -93,7 +107,11 @@ const Index = () => {
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(searchTerm.toLowerCase());
 
-    return categoryMatch && ratingMatch && searchMatch;
+    const priceMatch =
+      (minPrice === "" || hargaProduk >= minPrice) &&
+      (maxPrice === "" || hargaProduk <= maxPrice);
+
+    return categoryMatch && ratingMatch && searchMatch && priceMatch;
   });
 
   // Urutkan
@@ -124,13 +142,17 @@ const Index = () => {
       <div className="w-full flex lg:flex-col flex-row max-w-[1440px] lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px]">
         <div className="grid lg:flex w-full gap-4">
           {/* Sidebar */}
-          <div className="flex justify-between w-full lg:w-[256px] h-fit lg:h-full ">
+          <div className="flex justify-between w-full lg:w-[256px] h-fit lg:h-full sticky top-[61px] z-[9] ">
             <SideApp
               categories={categories}
               selectedCategories={selectedCategories}
               selectedRatings={selectedRatings}
               handleCategoryChange={handleCategoryChange}
               handleRatingChange={handleRatingChange}
+              minPrice={minPrice}
+              handleMinChange={handleMinChange}
+              maxPrice={maxPrice}
+              handleMaxChange={handleMaxChange}
             />
             <div className="lg:hidden">
               <Selectfield handleSortChange={handleSortChange} />

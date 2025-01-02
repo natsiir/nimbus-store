@@ -13,6 +13,11 @@ const SideApp = ({
   selectedRatings,
   handleCategoryChange,
   handleRatingChange,
+  minPrice,
+  handleMinChange,
+  maxPrice,
+  handleMaxChange,
+  error,
 }) => {
   const [isOverlay, setisOverlay] = useState(false);
 
@@ -74,6 +79,8 @@ const SideApp = ({
             <input
               type="number"
               id="min"
+              value={minPrice}
+              onChange={handleMinChange}
               className="w-full px-3 py-2 border border-slate-200 rounded"
               placeholder="Rp. 0"
             />
@@ -84,6 +91,8 @@ const SideApp = ({
             <input
               type="number"
               id="max"
+              value={maxPrice}
+              onChange={handleMaxChange}
               className="w-full px-3 py-2 border border-slate-200 rounded"
               placeholder="Rp. 50.000"
             />
@@ -175,6 +184,8 @@ const SideApp = ({
                 <input
                   type="number"
                   id="min"
+                  value={minPrice}
+                  onChange={handleMinChange}
                   className="w-full px-3 py-2 border border-slate-200 rounded"
                   placeholder="Rp. 0"
                 />
@@ -185,9 +196,12 @@ const SideApp = ({
                 <input
                   type="number"
                   id="max"
+                  value={maxPrice}
+                  onChange={handleMaxChange}
                   className="w-full px-3 py-2 border border-slate-200 rounded"
                   placeholder="Rp. 50.000"
                 />
+                {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
               </div>
             </div>
           </div>
