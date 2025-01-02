@@ -139,7 +139,7 @@ const Index = () => {
     <>
       <Header />
       <Tittle handleSearchChange={handleSearchChange} searchTerm={searchTerm} />
-      <div className="w-full flex lg:flex-col flex-row max-w-[1440px] lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px]">
+      <div className="w-full flex lg:flex-col flex-row max-w-[1440px] lg:h-full px-4 lg:px-10 pb-10 lg:pb-[60px] mx-auto">
         <div className="grid lg:flex w-full gap-4">
           {/* Sidebar */}
           <div className="flex justify-between w-full lg:w-[256px] h-fit lg:h-full sticky top-[61px] z-[9] ">
