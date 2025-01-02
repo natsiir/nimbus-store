@@ -12,21 +12,21 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center justify-between px-4 md:px-10 py-4 border-b bg-white shadow-sm">
+    <header className="sticky top-0 z-10 flex items-center justify-between px-4 md:px-10 py-4 border-b bg-white shadow-sm">
       {/* desktop */}
-      <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between">
+      <div className="w-full mx-auto flex items-center justify-between">
         {/* Kiri */}
         <nav className="hidden md:flex gap-4 font-semibold text-base text-gray-800">
-          <a href="#" className="hover:text-blue-600">
+          <a href="#" className="">
             Beranda
           </a>
           <div className="relative">
-            <a href="#" className="hover:text-blue-600">
+            <a href="#" className="">
               Katalog
             </a>
             <div className="absolute left-0 top-full  h-[1px] w-full bg-gray-800 " />
           </div>
-          <a href="#" className="hover:text-blue-600">
+          <a href="#" className="">
             Kontak
           </a>
         </nav>

@@ -12,6 +12,11 @@ export default {
         instrument: ["Instrument Sans", "sans-serif"],
         sans: ["DM Sans", "sans-serif"],
       },
+      colors: {
+        slate: {
+          900: "#0F172A", // Warna untuk text-slate-900
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

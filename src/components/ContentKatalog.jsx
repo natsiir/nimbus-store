@@ -3,12 +3,7 @@
 import PageContent from "./PegeContent";
 import StarRating from "./StarRating";
 
-const ContentKatalog = ({
-  products,
-  currentPage,
-  totalPages,
-  handlePageChange,
-}) => {
+const ContentKatalog = ({ products }) => {
   return (
     <>
       {products.length > 0 ? (
@@ -30,12 +25,12 @@ const ContentKatalog = ({
               className="flex flex-col items-center justify-center gap-4"
             >
               <img
-                className="h-[220px] md:h-[270px] lg:h-[320px]  w-[165px] md:w-[206.5px] lg:w-[248px] rounded-xl"
+                className="h-[220px] md:h-[270px] lg:h-[320px] w-[165px] sm:w-[165px] md:w-[206.5px] lg:w-[248px] rounded-xl"
                 src={product.image}
                 alt={product.title}
               />
               <div className="flex flex-col gap-3 items-center">
-                <div className="flex flex-col items-center w-full gap-1 text-center">
+                <div className="flex flex-col items-center  gap-1 text-center">
                   <h3 className="text-slate-900 font-lg line-clamp-2 h-12">
                     {product.title}
                   </h3>
@@ -63,13 +58,14 @@ const ContentKatalog = ({
       ) : (
         <p>No products available</p>
       )}
-      <div className="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4">
+      {/* <div className="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4"> */}
+      {/* <div>
         <PageContent
           currentPage={currentPage}
           totalPages={totalPages}
           handlePageChange={handlePageChange}
         />
-      </div>
+      </div> */}
     </>
   );
 };
