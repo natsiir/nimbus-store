@@ -18,6 +18,7 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
+  const [selectedSort, setSelectedSort] = useState("Urutkan Berdasarkan");
 
   const productsPerPage = 12;
 
@@ -73,6 +74,11 @@ const Index = () => {
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
+  };
+
+  const handleSelection = (value, label) => {
+    setSelectedSort(label); // Update teks berdasarkan pilihan
+    handleSortChange(value); // Panggil fungsi handler dengan nilai pilihan
   };
 
   // kategori, rating, dan pencarian
@@ -136,7 +142,10 @@ const Index = () => {
               <div className="w-full flex flex-row items-center justify-between">
                 <ResultContent totalResults={filteredProducts.length} />
                 <div className="hidden lg:block">
-                  <Selectfield handleSortChange={handleSortChange} />
+                  <Selectfield
+                    handleSelection={handleSelection}
+                    selectedSort={selectedSort}
+                  />
                 </div>
               </div>
               <div className="flex flex-col items-center w-full">
