@@ -17,16 +17,16 @@ const Header = () => {
       <div className="w-full max-w-[1440px] mx-auto flex items-center justify-between">
         {/* Kiri */}
         <nav className="hidden md:flex gap-4 font-semibold text-base text-gray-800">
-          <a href="#" className="hover:text-blue-600">
+          <a href="#" className="">
             Beranda
           </a>
           <div className="relative">
-            <a href="#" className="hover:text-blue-600">
+            <a href="#" className="">
               Katalog
             </a>
             <div className="absolute left-0 top-full  h-[1px] w-full bg-gray-800 " />
           </div>
-          <a href="#" className="hover:text-blue-600">
+          <a href="#" className="">
             Kontak
           </a>
         </nav>

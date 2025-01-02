@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 const Title = ({ searchTerm, handleSearchChange }) => {
   return (
     <section className="w-full flex flex-col text-center justify-center px-7 md:px-10 pt-10 pb-[32px] md:py-[60px] items-center gap-8 ">
-      <h1 className="text-slate-900 capitalize font-semibold text-2xl md:text-4xl">
+      <h1 className="capitalize font-semibold text-2xl md:text-4xl">
         katalog produk
       </h1>
       <div className="flex items-center border-[1px] rounded-full px-6 py-4 w-full md:max-w-[480px] max-w-[320px]">
