@@ -13,7 +13,7 @@ const Selectfield = ({ handleSelection, selectedSort }) => {
         <span>{selectedSort}</span>
         <ChevronDownIcon className="w-5 h-5" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[200px] text-sm text-slate-400 p-2 bg-slate-800">
+      <DropdownMenuContent className="w-[200px] text-sm text-slate-400 p-2 bg-white opacity-100">
         <DropdownMenuItem onClick={() => handleSelection("default", "Terbaru")}>
           Terbaru
         </DropdownMenuItem>
