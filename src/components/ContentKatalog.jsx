@@ -70,4 +70,6 @@ const ContentKatalog = ({ products }) => {
   );
 };
 
+// hacktoberfast2025
+
 export default ContentKatalog;
