@@ -201,4 +201,5 @@ const Index = () => {
   );
 };
 
+// export default anonymous function index
 export default Index;
