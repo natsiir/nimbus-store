@@ -121,4 +121,5 @@ const ClientSide = ({ products, categories }) => {
   );
 };
 
+// pastikan export default anonymous function nya 
 export default ClientSide;
